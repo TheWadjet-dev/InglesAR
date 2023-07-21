@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "344820373069",
+    "project_id": "ingar-5a42c",
+    "storage_bucket": "ingar-5a42c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:344820373069:android:73ceefd0e52c1a034bae04",
+        "android_client_info": {
+          "package_name": "com.ingar.ingar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "344820373069-cdlp80j8pir77kl0cifoar356if2dqrb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOO6RhS1hnO2odALrT2w8bXpAtZ-eKPl0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "344820373069-cdlp80j8pir77kl0cifoar356if2dqrb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:344820373069:android:f2b7df370e7a54104bae04",
+        "android_client_info": {
+          "package_name": "com.ingar.inglesar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "344820373069-cdlp80j8pir77kl0cifoar356if2dqrb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOO6RhS1hnO2odALrT2w8bXpAtZ-eKPl0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "344820373069-cdlp80j8pir77kl0cifoar356if2dqrb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

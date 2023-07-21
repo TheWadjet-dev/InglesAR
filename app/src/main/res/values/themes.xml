@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Base.Theme.InglesAR" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.InglesAR" parent="Base.Theme.InglesAR" />
+
+    <style name="custom_card_view_style" parent="Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/custom_card_view</item>
+    </style>
+
+    <style name="custom_card_view" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">48dp</item>
+        <item name="cornerSizeTopLeft">48dp</item>
+        <item name="cornerSizeBottomLeft">8dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+</resources>
