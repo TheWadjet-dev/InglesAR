@@ -2,6 +2,7 @@ package com.ingar.inglesar
 
 import android.content.Intent
 import android.content.res.Configuration
+import android.media.MediaPlayer
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -21,6 +22,9 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private lateinit var drawer: DrawerLayout
     private lateinit var toggle: ActionBarDrawerToggle
+    private lateinit var mediaPlayer: MediaPlayer
+    private lateinit var video: VideoView
+    private var currentVideoPosition: Int=0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,16 +56,37 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun video() {
-        val video = findViewById<VideoView>(R.id.videoView)
+        video = findViewById<VideoView>(R.id.videoView)
         val uri: Uri = Uri.parse(
             "android.resource://" + packageName + "/raw/vidhome"
         )
         video.setVideoURI(uri)
-        video.requestFocus()
-        video.resume()
+        video.start()
+
+        video.setOnPreparedListener { mp ->
+            mediaPlayer = mp
+            mediaPlayer.isLooping = true
+        }
+    }
+
+    override fun onPause(){
+        super.onPause()
+
+        currentVideoPosition = mediaPlayer.currentPosition
+        video.pause()
+    }
+
+    override fun onResume(){
+        super.onResume()
+
         video.start()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+
+        mediaPlayer.release()
+    }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
