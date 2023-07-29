@@ -1,69 +1,86 @@
 package com.ingar.inglesar
 
-import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.compose.ui.text.input.KeyboardType.Companion.Uri
-import androidx.core.content.ContextCompat.startActivity
+import android.widget.ImageView
+import android.widget.Toast
 import com.google.ar.core.Anchor
 import com.google.ar.sceneform.AnchorNode
+import com.google.ar.sceneform.assets.RenderableSource
+import com.google.ar.sceneform.math.Vector3
 import com.google.ar.sceneform.rendering.ModelRenderable
 import com.google.ar.sceneform.ux.ArFragment
 import com.google.ar.sceneform.ux.TransformableNode
 
+
 class ARActivity : AppCompatActivity() {
 
-  
+    private var renderable: ModelRenderable? = null
     private lateinit var arFragment: ArFragment
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_aractivity)
 
-        ModelAR()
+        arFragment =  supportFragmentManager.findFragmentById(R.id.arFragment) as ArFragment
 
+        initUI()
+    }
+
+    private fun initUI() {
+
+        findViewById<ImageView>(R.id.imageView0).setOnClickListener{
+            downloadModel("models/lowpoly_novel.glb")
+            arFragment()
+        }
+
+        findViewById<ImageView>(R.id.imageView1).setOnClickListener{
+            downloadModel("models/modern_chair.glb")
+            arFragment()
+        }
+
+        findViewById<ImageView>(R.id.imageView2).setOnClickListener{
+            downloadModel("models/supercar_mistral.glb")
+            arFragment()
+        }
     }
 
 
-    private fun ModelAR(){
-        arFragment = supportFragmentManager.findFragmentById(R.id.ux_fragment) as ArFragment
-        
+    private fun arFragment(){
         arFragment.setOnTapArPlaneListener { hitResult, plane, motionEvent ->
+            if (renderable == null){return@setOnTapArPlaneListener}
             val anchor: Anchor = hitResult.createAnchor()
-            val uri: Uri = android.net.Uri.parse(
-                "android.resource://" + packageName + "/assets/lowpoly_novel"
-            )
-
-            ModelRenderable.builder()
-                .setSource(this, uri)
-                .build()
-                .thenAccept{modelRenderable -> addModelToScene(anchor, modelRenderable)}
+            val anchorNode = AnchorNode(anchor)
+            anchorNode.setParent(arFragment.arSceneView.scene)
+            val node = TransformableNode(arFragment.transformationSystem)
+            node.renderable = renderable
+            node.scaleController.minScale = 0.3f
+            node.scaleController.maxScale = 1.0f
+            node.worldScale = Vector3(0.5f, 0.5f, 0.5f)
+            node.setParent(anchorNode)
+            node.select()
         }
-        
-        val sceneViewerIntent = Intent(Intent.ACTION_VIEW);
-        
-        val uri: Uri? = android.net.Uri.parse(
-            "https://arvr.google.com/scene-viewer/1.0"
-        ).buildUpon()
-            .appendQueryParameter("file", "android.resource://" + packageName + "/assets/lowpoly_novel")
-            .appendQueryParameter("mode", "ar_only")
+    }
+
+    private fun downloadModel(URL_ruta: String?) {
+        var renderableSource = RenderableSource.builder()
+            .setSource(this, Uri.parse(URL_ruta),RenderableSource.SourceType.GLB)
+            .setRecenterMode(RenderableSource.RecenterMode.CENTER)
             .build()
 
-        sceneViewerIntent.setData(uri)
-        sceneViewerIntent.setPackage("com.google.ar.core")
-        startActivity(sceneViewerIntent)
+        ModelRenderable.builder()
+            .setSource(this, renderableSource)
+            .build()
+            .thenAccept { modelRenderable ->
+                renderable = modelRenderable
+                Toast.makeText(this@ARActivity, "Carga completa toque una superficie", Toast.LENGTH_LONG).show()
+            }
+            .exceptionally { throwable ->
+                Toast.makeText(this@ARActivity, "No se puedo cargar el elemento 3D", Toast.LENGTH_LONG).show()
+                return@exceptionally null
+            }
     }
 
-    private fun addModelToScene(anchor: Anchor, modelRenderable: ModelRenderable){
-
-        val node = AnchorNode(anchor)
-        val transformableNode = TransformableNode(arFragment.transformationSystem)
-        transformableNode.setParent(node)
-        transformableNode.renderable = modelRenderable
-
-        arFragment.arSceneView.scene.addChild(node)
-        transformableNode.select()
-
-    }
 }

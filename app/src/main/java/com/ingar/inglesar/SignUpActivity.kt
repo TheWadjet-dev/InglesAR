@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
-import com.ingar.inglesar.R
 import com.ingar.inglesar.databinding.ActivitySignUpBinding
 
 class SignUpActivity : AppCompatActivity() {

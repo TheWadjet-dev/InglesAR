@@ -1,8 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'com.google.gms.google-services'
-    id 'com.google.ar.sceneform.plugin'
 }
 
 android {
@@ -61,11 +59,13 @@ dependencies {
     implementation 'androidx.compose.ui:ui-graphics'
     implementation 'androidx.compose.ui:ui-tooling-preview'
     implementation 'androidx.compose.material3:material3'
-    implementation 'com.google.firebase:firebase-auth-ktx:22.1.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
+    //Firebase
+    implementation 'com.google.firebase:firebase-auth-ktx:22.1.0'
+    implementation 'com.google.firebase:firebase-storage:20.2.1'
 
     //Drawer Navigation
     implementation 'androidx.drawerlayout:drawerlayout:1.2.0'
@@ -85,3 +85,5 @@ dependencies {
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
 }
+
+apply plugin: 'com.google.gms.google-services'

@@ -3,6 +3,7 @@ package com.ingar.inglesar
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.google.firebase.FirebaseApp
 import com.ingar.inglesar.databinding.ActivityInitBinding
 
 class InitActivity : AppCompatActivity() {
@@ -13,7 +14,7 @@ class InitActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityInitBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        FirebaseApp.initializeApp(this)
         initUI()
     }
 

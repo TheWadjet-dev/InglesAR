@@ -3,7 +3,6 @@ package com.ingar.inglesar
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ProgressBar
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.ingar.inglesar.databinding.ActivityForgotPassBinding
