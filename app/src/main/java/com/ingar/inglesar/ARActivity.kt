@@ -33,16 +33,19 @@ class ARActivity : AppCompatActivity() {
 
         findViewById<ImageView>(R.id.imageView0).setOnClickListener{
             downloadModel("models/lowpoly_novel.glb")
+            Toast.makeText(this@ARActivity, "La traducción de Libro es Book", Toast.LENGTH_LONG).show()
             arFragment()
         }
 
         findViewById<ImageView>(R.id.imageView1).setOnClickListener{
             downloadModel("models/modern_chair.glb")
+            Toast.makeText(this@ARActivity, "La traducción de Silla es Chair", Toast.LENGTH_LONG).show()
             arFragment()
         }
 
         findViewById<ImageView>(R.id.imageView2).setOnClickListener{
-            downloadModel("models/supercar_mistral.glb")
+            downloadModel("models/m9_bayonet.glb")
+            Toast.makeText(this@ARActivity, "La traducción de Cuchillo es Knife", Toast.LENGTH_LONG).show()
             arFragment()
         }
     }
@@ -82,5 +85,6 @@ class ARActivity : AppCompatActivity() {
                 return@exceptionally null
             }
     }
+
 
 }

@@ -1,96 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CarouselActivity"
-    app:layoutDescription="@xml/activity_carousel_scene"
-    android:id="@+id/motionLayout"
-    tools:ignore="MotionLayoutInvalidSceneFileReference">
+    android:background="@color/app_theme"
+    android:backgroundTint="@color/app_theme"
+    tools:context=".CarouselActivity">
 
-    <ImageView
-        android:id="@+id/imageView0"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="16dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/libro"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView1"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="16dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/silla"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="16dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/carro"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="16dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/img4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/img5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline7"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/Modelos"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="100dp" />
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="100dp" />
+        <LinearLayout
+            android:id="@+id/lyImagen0"
+            android:layout_width="120dp"
+            android:layout_height="150dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/guideline8"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="275dp">
 
-    <androidx.constraintlayout.helper.widget.Carousel
-        android:id="@+id/carousel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:carousel_forwardTransition="@+id/forward"
-        app:carousel_backwardTransition="@+id/backward"
-        app:carousel_previousState="@+id/previous"
-        app:carousel_nextState="@+id/next"
-        app:carousel_infinite="true"
-        app:carousel_firstView="@+id/imageView2"
-        app:constraint_referenced_ids="imageView0,imageView1,imageView2,imageView3,imageView4"
-        tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/txtLibro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:text="Libro" />
 
-</androidx.constraintlayout.motion.widget.MotionLayout>
+            <ImageView
+                android:id="@+id/imageView0"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                android:src="@drawable/libro" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lyImagen1"
+            android:layout_width="120dp"
+            android:layout_height="160dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/guideline8"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.547"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="19dp">
+
+            <TextView
+                android:id="@+id/txtSilla"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:text="Silla" />
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                android:src="@drawable/silla" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lyImagen2"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/guideline8"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="139dp"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/txtCuchillo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:text="Cuchillo" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/cuchillo" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

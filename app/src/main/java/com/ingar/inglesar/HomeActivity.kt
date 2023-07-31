@@ -1,5 +1,6 @@
 package com.ingar.inglesar
 
+
 import android.content.Intent
 import android.content.res.Configuration
 import android.media.MediaPlayer
@@ -94,10 +95,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_item_two -> Toast.makeText(this, "Avances", Toast.LENGTH_SHORT).show()
             R.id.nav_item_three -> Toast.makeText(this, "Mensajes", Toast.LENGTH_SHORT).show()
             R.id.nav_item_six -> logout()
-
         }
-
-
         drawer.closeDrawer(GravityCompat.START)
 
         return true
