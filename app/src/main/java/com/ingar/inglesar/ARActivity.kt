@@ -60,7 +60,7 @@ class ARActivity : AppCompatActivity() {
             val node = TransformableNode(arFragment.transformationSystem)
             node.renderable = renderable
             node.scaleController.minScale = 0.3f
-            node.scaleController.maxScale = 1.0f
+            node.scaleController.maxScale = 0.8f
             node.worldScale = Vector3(0.5f, 0.5f, 0.5f)
             node.setParent(anchorNode)
             node.select()

@@ -17,8 +17,8 @@
 
         <LinearLayout
             android:id="@+id/lyImagen0"
-            android:layout_width="120dp"
-            android:layout_height="150dp"
+            android:layout_width="126dp"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/guideline8"
             app:layout_constraintTop_toTopOf="parent"
@@ -30,10 +30,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:text="Libro"
                 android:textColor="@color/white"
                 android:textSize="20dp"
-                android:textStyle="bold"
-                android:text="Libro" />
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/imageView0"
@@ -46,8 +46,8 @@
 
         <LinearLayout
             android:id="@+id/lyImagen1"
-            android:layout_width="120dp"
-            android:layout_height="160dp"
+            android:layout_width="126dp"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/guideline8"
             app:layout_constraintTop_toTopOf="parent"
@@ -60,10 +60,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:text="Silla"
                 android:textColor="@color/white"
                 android:textSize="20dp"
-                android:textStyle="bold"
-                android:text="Silla" />
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/imageView1"
@@ -77,23 +77,23 @@
 
         <LinearLayout
             android:id="@+id/lyImagen2"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="168dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/guideline8"
             app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="139dp"
-            tools:ignore="MissingConstraints">
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="139dp">
 
             <TextView
                 android:id="@+id/txtCuchillo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:text="Cuchillo"
                 android:textColor="@color/white"
                 android:textSize="20dp"
-                android:textStyle="bold"
-                android:text="Cuchillo" />
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/imageView2"
