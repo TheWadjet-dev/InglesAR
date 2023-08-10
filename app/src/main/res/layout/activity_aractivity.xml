@@ -17,6 +17,9 @@
         android:layout_height="match_parent">
 
         <include
+            layout="@layout/back_refresh"/>
+
+        <include
             layout="@layout/activity_carousel"
             android:layout_width="match_parent"
             android:layout_height="150dp"

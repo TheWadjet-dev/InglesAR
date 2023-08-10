@@ -1,10 +1,14 @@
 package com.ingar.inglesar
 
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.compose.material3.Snackbar
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import com.google.ar.core.Anchor
 import com.google.ar.sceneform.AnchorNode
 import com.google.ar.sceneform.assets.RenderableSource
@@ -27,25 +31,41 @@ class ARActivity : AppCompatActivity() {
         arFragment =  supportFragmentManager.findFragmentById(R.id.arFragment) as ArFragment
 
         initUI()
+        backRefresh()
+    }
+
+    private fun backRefresh() {
+        findViewById<FloatingActionButton>(R.id.fab_regresar).setOnClickListener{
+            val home = Intent(this, HomeActivity::class.java)
+            startActivity(home)
+        }
+
+        findViewById<FloatingActionButton>(R.id.fab_refresh).setOnClickListener {
+            val refresh = Intent(this, ARActivity::class.java)
+            startActivity(refresh)
+        }
     }
 
     private fun initUI() {
 
         findViewById<ImageView>(R.id.imageView0).setOnClickListener{
             downloadModel("models/lowpoly_novel.glb")
-            Toast.makeText(this@ARActivity, "La traducción de Libro es Book", Toast.LENGTH_LONG).show()
+            Snackbar.make(findViewById(R.id.imageView0), "La traducción de Libro es Book", 6000).show()
+            Snackbar.make(findViewById(R.id.imageView0), "The bible is a very old book", 6000).show()
             arFragment()
         }
 
         findViewById<ImageView>(R.id.imageView1).setOnClickListener{
             downloadModel("models/modern_chair.glb")
-            Toast.makeText(this@ARActivity, "La traducción de Silla es Chair", Toast.LENGTH_LONG).show()
+            Snackbar.make(findViewById(R.id.imageView1), "La traducción de Silla es Chair", 6000).show()
+            Snackbar.make(findViewById(R.id.imageView1), "The school chairs are new", 6000).show()
             arFragment()
         }
 
         findViewById<ImageView>(R.id.imageView2).setOnClickListener{
             downloadModel("models/m9_bayonet.glb")
-            Toast.makeText(this@ARActivity, "La traducción de Cuchillo es Knife", Toast.LENGTH_LONG).show()
+            Snackbar.make(findViewById(R.id.imageView2), "La traducción de Cuchillo es Knife", 6000).show()
+            Snackbar.make(findViewById(R.id.imageView2), "The knife is used to cut the bread", 6000).show()
             arFragment()
         }
     }
@@ -81,7 +101,7 @@ class ARActivity : AppCompatActivity() {
                 Toast.makeText(this@ARActivity, "Carga completa toque una superficie", Toast.LENGTH_LONG).show()
             }
             .exceptionally { throwable ->
-                Toast.makeText(this@ARActivity, "No se puedo cargar el elemento 3D", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@ARActivity, "No se puedo cargar el elemento 3D", Toast.LENGTH_SHORT).show()
                 return@exceptionally null
             }
     }
