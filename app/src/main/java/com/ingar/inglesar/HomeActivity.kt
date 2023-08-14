@@ -54,6 +54,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         video()
         AR()
+        ARFrutas()
+        ARObjects()
     }
 
     private fun video() {
@@ -127,6 +129,20 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         binding.btnStart.setOnClickListener{
             val ar = Intent(this, ARActivity::class.java)
             startActivity(ar)
+        }
+    }
+
+    private fun ARFrutas(){
+        binding.btnStart2.setOnClickListener{
+            val ar2 = Intent(this, ARActivityFr::class.java)
+            startActivity(ar2)
+        }
+    }
+
+    private fun ARObjects(){
+        binding.btnStart3.setOnClickListener{
+            val ar3 = Intent(this, ARActivityOb::class.java)
+            startActivity(ar3)
         }
     }
 }
