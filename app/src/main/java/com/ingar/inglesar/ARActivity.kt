@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.compose.material3.Snackbar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.ar.core.Anchor
@@ -47,25 +46,21 @@ class ARActivity : AppCompatActivity() {
     }
 
     private fun initUI() {
-
         findViewById<ImageView>(R.id.imageView0).setOnClickListener{
-            downloadModel("models/lowpoly_novel.glb")
-            Snackbar.make(findViewById(R.id.imageView0), "La traducción de Libro es Book", 6000).show()
-            Snackbar.make(findViewById(R.id.imageView0), "The bible is a very old book", 6000).show()
+            downloadModel("models/dog.glb")
+            Snackbar.make(findViewById(R.id.imageView0), "La traducción de Perro es Dog", 6000).show()
             arFragment()
         }
 
         findViewById<ImageView>(R.id.imageView1).setOnClickListener{
-            downloadModel("models/modern_chair.glb")
-            Snackbar.make(findViewById(R.id.imageView1), "La traducción de Silla es Chair", 6000).show()
-            Snackbar.make(findViewById(R.id.imageView1), "The school chairs are new", 6000).show()
+            downloadModel("models/duck.glb")
+            Snackbar.make(findViewById(R.id.imageView1), "La traducción de Pato es Duck", 6000).show()
             arFragment()
         }
 
         findViewById<ImageView>(R.id.imageView2).setOnClickListener{
-            downloadModel("models/m9_bayonet.glb")
-            Snackbar.make(findViewById(R.id.imageView2), "La traducción de Cuchillo es Knife", 6000).show()
-            Snackbar.make(findViewById(R.id.imageView2), "The knife is used to cut the bread", 6000).show()
+            downloadModel("models/cat.glb")
+            Snackbar.make(findViewById(R.id.imageView2), "La traducción de Gato es Cat", 6000).show()
             arFragment()
         }
     }

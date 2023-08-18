@@ -3,4 +3,10 @@
 
     <string name="navigation_drawer_open">Abrir</string>
     <string name="navigation_drawer_close">Cerrar</string>
+
+    <string name="select_file">Seleccione su archivo del almacenamiento. Solo puede seleccionar el archivo PDF</string>
+    <string name="twice_select">Haga clic dos veces para seleccionar el archivo</string>
+    <string name="upload_file">Cargar Archivo</string>
+    <string name="retrieve_files">Recuperar archivos PDF</string>
+    <string name="pdf_file_name">nombre del archivo pdf</string>
 </resources>

@@ -54,6 +54,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         video()
         AR()
+        ARFrutas()
+        ARObjects()
     }
 
     private fun video() {
@@ -72,33 +74,42 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onPause(){
         super.onPause()
-
         currentVideoPosition = mediaPlayer.currentPosition
         video.pause()
     }
 
     override fun onResume(){
         super.onResume()
-
         video.start()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-
         mediaPlayer.release()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            R.id.nav_item_home -> home()
             R.id.nav_item_one -> Toast.makeText(this, "Perfil", Toast.LENGTH_SHORT).show()
             R.id.nav_item_two -> Toast.makeText(this, "Avances", Toast.LENGTH_SHORT).show()
             R.id.nav_item_three -> Toast.makeText(this, "Mensajes", Toast.LENGTH_SHORT).show()
+            R.id.nav_item_four -> uploadPDF()
             R.id.nav_item_six -> logout()
         }
         drawer.closeDrawer(GravityCompat.START)
 
         return true
+    }
+
+    private fun home() {
+        var home: Intent = Intent(this, HomeActivity::class.java)
+        startActivity(home)
+    }
+
+    private fun uploadPDF() {
+        var pdf: Intent = Intent(this, UploadPDF::class.java)
+        startActivity(pdf)
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
@@ -127,6 +138,20 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         binding.btnStart.setOnClickListener{
             val ar = Intent(this, ARActivity::class.java)
             startActivity(ar)
+        }
+    }
+
+    private fun ARFrutas(){
+        binding.btnStart2.setOnClickListener{
+            val ar2 = Intent(this, ARActivityFr::class.java)
+            startActivity(ar2)
+        }
+    }
+
+    private fun ARObjects(){
+        binding.btnStart3.setOnClickListener{
+            val ar3 = Intent(this, ARActivityOb::class.java)
+            startActivity(ar3)
         }
     }
 }

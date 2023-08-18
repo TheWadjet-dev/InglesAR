@@ -20,7 +20,7 @@
             layout="@layout/back_refresh"/>
 
         <include
-            layout="@layout/activity_carousel"
+            layout="@layout/carrousel_animals"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_marginBottom="4dp"
