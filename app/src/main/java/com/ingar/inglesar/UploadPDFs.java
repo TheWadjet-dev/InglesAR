@@ -17,7 +17,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.ktx.Firebase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -46,15 +45,23 @@ public class UploadPDFs extends AppCompatActivity {
 
         upload_btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 selecFiles();
+            }
+        });
+
+        viewPDF_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UploadPDFs.this, ShowPDFs.class);
+                startActivity(intent);
             }
         });
     }
 
     private void selecFiles(){
         Intent intent= new Intent();
-        intent.setType("applicaction/pdf");
+        intent.setType("application/pdf");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Seleccione el archivo PDF..."), 1);
     }
@@ -73,7 +80,7 @@ public class UploadPDFs extends AppCompatActivity {
         progressDialog.setTitle("Cargando...");
         progressDialog.show();
 
-        StorageReference reference= storageReference.child("Uploads/" +System.currentTimeMillis()+ ".pdf");
+        StorageReference reference= storageReference.child("Uploads/"+System.currentTimeMillis()+".pdf");
         reference.putFile(data)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -99,7 +106,7 @@ public class UploadPDFs extends AppCompatActivity {
 
         viewPDF_btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), ShowPDFs.class);
                 startActivity(intent);
             }

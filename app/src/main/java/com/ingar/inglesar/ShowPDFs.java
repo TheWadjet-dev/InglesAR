@@ -62,7 +62,7 @@ public class ShowPDFs extends AppCompatActivity {
 
         fab_home.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                 startActivity(intent);
             }
@@ -70,7 +70,7 @@ public class ShowPDFs extends AppCompatActivity {
 
         fab_upload.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), UploadPDFs.class);
                 startActivity(intent);
             }
