@@ -21,7 +21,7 @@ import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
 import com.ingar.inglesar.databinding.ActivityUploadPdfBinding
 
-class UploadPDF : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener{
+class UploadPDF : AppCompatActivity() {
     
     private lateinit var binding: ActivityUploadPdfBinding
     private lateinit var pdfReference: StorageReference
@@ -33,26 +33,6 @@ class UploadPDF : AppCompatActivity() , NavigationView.OnNavigationItemSelectedL
         binding = ActivityUploadPdfBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar_pdf)
-        setSupportActionBar(toolbar)
-
-        drawer = findViewById(R.id.drawer_layout_pdf)
-
-        toggle = ActionBarDrawerToggle(
-            this,
-            drawer,
-            toolbar,
-            R.string.navigation_drawer_open,
-            R.string.navigation_drawer_close
-        )
-        drawer.addDrawerListener(toggle)
-
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeButtonEnabled(true)
-
-        val navigationView: NavigationView = findViewById(R.id.nav_view_pdf)
-        navigationView.setNavigationItemSelectedListener(this)
-
         pdfReference = FirebaseStorage.getInstance().getReference("PDFs")
 
         binding.btnFb.setOnClickListener {
@@ -63,19 +43,7 @@ class UploadPDF : AppCompatActivity() , NavigationView.OnNavigationItemSelectedL
         }
     }
 
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.nav_item_home -> home()
-            R.id.nav_item_one -> Toast.makeText(this, "Perfil", Toast.LENGTH_SHORT).show()
-            R.id.nav_item_two -> Toast.makeText(this, "Avances", Toast.LENGTH_SHORT).show()
-            R.id.nav_item_three -> Toast.makeText(this, "Mensajes", Toast.LENGTH_SHORT).show()
-            R.id.nav_item_four -> uploadPDF()
-            R.id.nav_item_six -> logout()
-        }
-        drawer.closeDrawer(GravityCompat.START)
 
-        return true
-    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (resultCode== RESULT_OK){
@@ -100,24 +68,13 @@ class UploadPDF : AppCompatActivity() , NavigationView.OnNavigationItemSelectedL
                     Toast.makeText(this,  "Archivo Cargado", Toast.LENGTH_SHORT).show()
             }
         }
+
+        binding.showBtn.setOnClickListener {
+            var arch: Intent = Intent(applicationContext, HomeActivity::class.java)
+            startActivity(arch)
+        }
     }
 
-
-
-    private fun uploadPDF() {
-        var pdf: Intent = Intent(this, UploadPDF::class.java)
-        startActivity(pdf)
-    }
-
-    private fun logout() {
-        FirebaseAuth.getInstance().signOut()
-        onBackPressed()
-    }
-
-    private fun home() {
-        var home: Intent = Intent(this, HomeActivity::class.java)
-        startActivity(home)
-    }
     override fun onPostCreate(savedInstanceState: Bundle?) {
         super.onPostCreate(savedInstanceState)
         toggle.syncState()
@@ -134,6 +91,11 @@ class UploadPDF : AppCompatActivity() , NavigationView.OnNavigationItemSelectedL
         }
         return super.onOptionsItemSelected(item)
     }
+
+    fun getUrl(): String? {
+        return getUrl()
+    }
+
 }
 
 

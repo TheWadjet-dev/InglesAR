@@ -25,6 +25,15 @@
         android:theme="@style/Theme.InglesAR"
         tools:targetApi="31">
         <activity
+            android:name=".UploadPDFs"
+            android:exported="false" />
+        <activity
+            android:name=".ShowPDFs"
+            android:exported="false" />
+        <activity
+            android:name=".ShowPDF"
+            android:exported="false" />
+        <activity
             android:name=".UploadPDF"
             android:exported="false" />
         <activity

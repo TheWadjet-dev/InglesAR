@@ -108,7 +108,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun uploadPDF() {
-        var pdf: Intent = Intent(this, UploadPDF::class.java)
+        var pdf = Intent(this, ShowPDFs::class.java)
         startActivity(pdf)
     }
 
@@ -131,7 +131,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun logout(){
         FirebaseAuth.getInstance().signOut()
-        onBackPressed()
+        var out = Intent(this, SignInActivity::class.java)
+        startActivity(out)
     }
 
     private fun AR(){
